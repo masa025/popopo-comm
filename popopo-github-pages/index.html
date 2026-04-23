@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POPOPO リスナーコミュニティ</title>
+  <meta name="description" content="POPOPOのリスナー同士が、おすすめスポットや配信の感想をシェアできるコミュニティサイト" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <a href="#" class="brand-mark">POPOPO</a>
+        <span class="brand-sub">リスナーコミュニティ</span>
+      </div>
+      <nav class="nav">
+        <a href="#topics">話題</a>
+        <a href="#spots">おすすめスポット</a>
+        <a href="#posts">投稿</a>
+        <a href="#join">参加する</a>
+      </nav>
+      <div class="top-actions">
+        <a class="btn btn-secondary" href="#posts">投稿を見る</a>
+        <a class="btn btn-primary" href="#join">参加する</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-card">
+        <div class="hero-copy">
+          <span class="badge">🎧 POPOPOをもっと楽しむための交流スペース</span>
+          <h1>「好き」を語れる<br>場所へようこそ</h1>
+          <p>
+            POPOPOの配信をきっかけに、おすすめスポット、今日の話題、気になるお店、
+            配信の感想をゆるくシェア。リスナー同士でつながれるコミュニティの試作版です。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#join">コミュニティに参加する</a>
+            <a class="btn btn-secondary" href="#spots">おすすめスポットを見る</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-label">参加メンバー</span>
+              <strong>2,850人+</strong>
+            </div>
+            <div class="stat">
+              <span class="stat-label">今日の話題</span>
+              <strong>128件</strong>
+            </div>
+            <div class="stat">
+              <span class="stat-label">公開スポット</span>
+              <strong>236件</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="glow-ring"></div>
+          <div class="bubble one">💬 今日の配信どうだった？</div>
+          <div class="bubble two">📍 おすすめスポット共有しよう！</div>
+          <div class="avatar a">🙋</div>
+          <div class="avatar b">😊</div>
+          <div class="avatar c">🎤</div>
+          <div class="avatar d">✨</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="topics">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>今日の話題 🔥</h2>
+            <p>配信で盛り上がっているテーマをチェックできます。</p>
+          </div>
+        </div>
+        <div class="topic-grid" id="topics-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="spots">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>おすすめスポット 📍</h2>
+            <p>POPOPOで話題になったお店や場所を、あとで見返しやすく整理。</p>
+          </div>
+        </div>
+        <div class="spot-grid" id="spots-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="posts">
+      <div class="container community-layout">
+        <div class="panel card">
+          <div class="section-title">
+            <div>
+              <h2>みんなの投稿 💜</h2>
+              <p>おすすめや感想を、気軽にシェアできる場所です。</p>
+            </div>
+          </div>
+
+          <form class="composer" id="join-form">
+            <label class="composer-label" for="message">ひとこと投稿 / 参加メッセージ</label>
+            <textarea id="message" name="message" placeholder="今どうしてる？ おすすめや感想をシェアしよう！"></textarea>
+            <div class="composer-actions">
+              <div class="composer-tags">
+                <span class="badge">🖼 画像</span>
+                <span class="badge">📍 スポット</span>
+                <span class="badge">🎪 イベント</span>
+              </div>
+              <button type="submit" class="btn btn-primary">送信する</button>
+            </div>
+            <p class="form-note" id="form-note">
+              GitHub Pages版では保存処理はダミーです。Netlify移行時にNotion連携へ差し替えられます。
+            </p>
+          </form>
+
+          <div id="posts-list"></div>
+        </div>
+
+        <aside class="panel card sidebar">
+          <div class="section-title">
+            <div>
+              <h2>人気のメンバー 👑</h2>
+              <p>コミュニティを盛り上げているメンバーたち。</p>
+            </div>
+          </div>
+          <div class="member-list" id="members-list"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta" id="join">
+      <div class="container cta-card">
+        <div>
+          <h2>まずはGitHub Pagesで試してみよう</h2>
+          <p>
+            この版は静的サイトとしてそのまま公開できます。後からNetlify FunctionsやSupabaseに接続しやすい構成です。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-secondary" href="README.md">READMEを見る</a>
+            <a class="btn btn-primary" href="#posts">試しに触ってみる</a>
+          </div>
+        </div>
+        <div class="cta-avatars" aria-hidden="true">
+          <div class="avatar static">🎧</div>
+          <div class="avatar static">💜</div>
+          <div class="avatar static">📣</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-card card">
+      <div>
+        <h3>POPOPO</h3>
+        <p>GitHub Pages向け試作版。後からNotionやSupabaseへ連携しやすい構成にしています。</p>
+      </div>
+      <div>
+        <h4>コミュニティ</h4>
+        <div class="footer-links">
+          <a href="#topics">話題</a>
+          <a href="#spots">スポット</a>
+          <a href="#posts">投稿</a>
+        </div>
+      </div>
+      <div>
+        <h4>今後の連携</h4>
+        <div class="footer-links">
+          <a href="#">Notion保存</a>
+          <a href="#">Supabase表示</a>
+          <a href="#">Netlify移行</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
